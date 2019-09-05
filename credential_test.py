@@ -20,7 +20,7 @@ class testAccounts(unittest.TestCase):
             '''
             Account.account_list = []
 
-            
+
     def test_init(self):
         '''
         test_init test case to test if the object is initialized properly
@@ -47,6 +47,18 @@ class testAccounts(unittest.TestCase):
             test_save_account = Account("Test","nameofuser","user") 
             test_save_account.save_account()
             self.assertEqual(len(Account.account_list),2)
+    
+    def test_delete_account(self):
+            '''
+            test_delete_account to test if we can remove an account from our account list
+            '''
+            self.new_account.save_account()
+            test_account = Account("Test","nameofuser","user")
+            test_account.save_account()
+
+            self.new_account.delete_account()
+            self.assertEqual(len(Account.account_list),1)
+
 
 if __name__ == '__main__':
     unittest.main()
