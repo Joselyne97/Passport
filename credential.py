@@ -18,3 +18,5 @@ class Account:
         '''
 
         Account.account_list.append(self)
+
+    

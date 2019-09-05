@@ -12,9 +12,15 @@ class testAccounts(unittest.TestCase):
         '''      
         Set up method to run before each test cases.
         '''
-        self.new_account = Account("Github","Joselyne97","jojopass") # create contact object
+        self.new_account = Account("Github","Joselyne97","jojopass")
 
+    def tearDown(self):
+            '''
+            tearDown method that does clean up after each test case has run.
+            '''
+            Account.account_list = []
 
+            
     def test_init(self):
         '''
         test_init test case to test if the object is initialized properly
@@ -29,18 +35,18 @@ class testAccounts(unittest.TestCase):
         test_save_account test case to test if the account object is saved into
          the account list
         '''
-        self.new_account.save_account() # saving the new contact
+        self.new_account.save_account()
         self.assertEqual(len(Account.account_list),1)
 
     def test_save_multiple_account(self):
             '''
-            test_save_multiple_contact to check if we can save multiple contact
-            objects to our contact_list
+            test_save_multiple_account to check if we can save multiple account
+            objects to our account_list
             '''
-            self.new_contact.save_contact()
-            test_contact = Contact("Test","user","0712345678","test@user.com") # new contact
-            test_contact.save_contact()
-            self.assertEqual(len(Contact.contact_list),2)
+            self.new_account.save_account()
+            test_save_account = Account("Test","nameofuser","user") 
+            test_save_account.save_account()
+            self.assertEqual(len(Account.account_list),2)
 
 if __name__ == '__main__':
     unittest.main()
