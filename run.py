@@ -104,23 +104,22 @@ def main():
 
                         print("Enter the social account name you want to delete")
 
-                            socialmedia_name= input()
+                            delete_socialaccount= input()
                             if delete_account(socialmedia_name):
-                                    socialmedia_name = delete_account(search_number)
-                                    print(f"{search_contact.first_name} {search_contact.last_name}")
+                                    delete_socialaccount = find_account(delete_socialaccount)
+                                    print(f"{delete_account.socialaccount} {delete_account.socialpassword}")
                                     print('-' * 20)
 
-                                    print(f"Phone number.......{search_contact.phone_number}")
-                                    print(f"Email address.......{search_contact.email}")
+                                    print(f"Username of the social media's account{delete_account.username}")
+                                    print(f"The password of the social media's account{delete_account.accpassword}")
                             else:
                                     print("That contact does not exist")
 
                     elif short_code == "ex":
-                            print("Thank you!!!!!!!")
+                            print("Bye .......")
                             break
                     else:
                             print("I really didn't get that. Please use the short codes")
-
 if __name__ == '__main__':
 
     main()

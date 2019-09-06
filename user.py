@@ -1,3 +1,4 @@
+import pyperclip
 class User:
     """
     Class that generates new instances of user's information
@@ -17,3 +18,9 @@ class User:
         '''
 
         User.user_list.append(self)
+
+    def delete_user(self):
+        '''
+        function to   delete user instance
+        '''
+        User.user_list.remove(self)

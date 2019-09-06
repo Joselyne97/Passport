@@ -28,8 +28,20 @@ class testUser(unittest.TestCase):
         test_save_user test case to test if the user's object is saved into the user's list
         '''
         self.new_user.save_user()
-        self.assertEqual(len(User.user_list),1)
+        self.assertEqual(len(User.user_list),2)
 
+    def test_delete_user(self):
+
+	    '''
+		delete user's account
+		'''
+
+	    self.new_user.save_user()
+
+	    test_user=User("Joselyne97","jojo11")
+	    test_user.save_user()
+	    self.new_user.delete_user()
+	    self.assertEqual(len(User.user_list),1)
 
 if __name__ == '__main__':
     unittest.main()
