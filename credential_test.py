@@ -26,9 +26,9 @@ class testAccounts(unittest.TestCase):
         test_init test case to test if the object is initialized properly
         '''
 
-        self.assertEqual(self.new_account.account_name,"Github")
+        self.assertEqual(self.new_account.somedia,"Github")
         self.assertEqual(self.new_account.username,"Joselyne97")
-        self.assertEqual(self.new_account.account_password,"jojopass")
+        self.assertEqual(self.new_account.accpassword,"jojopass")
 
     def test_save_account(self):
         '''
@@ -59,6 +59,28 @@ class testAccounts(unittest.TestCase):
             self.new_account.delete_account()
             self.assertEqual(len(Account.account_list),1)
 
+    # def test_find_account_by_accountname(self):
+    #     '''
+    #     test to check if we can find a password by the  social media's name (somedia) account name and display information
+    #     '''
+
+    #     self.new_account.save_account()
+    #     test_account = Account("Test","nameofuser","user")
+    #     test_account.save_account()
+
+    #     found_account = Account.find_account_by_accountname("Test")
+
+    #     self.assertEqual(found_account.accpassword,test_account.accpassword)
+
+
+    def test_display_all_accounts(self):
+        '''
+        method that returns a list of all accounts saved
+        '''
+
+        self.assertEqual(Account.display_accounts(),Account.account_list)
+
+    
 
 if __name__ == '__main__':
     unittest.main()

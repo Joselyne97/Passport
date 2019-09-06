@@ -5,11 +5,11 @@ class Account:
     
     account_list =[]
     
-    def __init__(self,account_name,username,account_password):
+    def __init__(self,somedia,username,accpassword):
 
-        self.account_name = account_name
+        self.somedia = somedia
         self.username = username
-        self.account_password = account_password
+        self.accpassword = accpassword
 
     def save_account(self):
 
@@ -27,3 +27,27 @@ class Account:
 
         Account.account_list.remove(self)
 
+    # @classmethod
+    # def find_by_accountname(cls,accountname):
+    #     '''
+    #     Method that takes in a name and returns an account's name that matches that username.
+
+    #     Args:
+    #         accountname: the somedia account to search for
+    #     Returns :
+    #         password of a social media that matches the accountname.
+    #     '''
+
+    #     for account in cls.account_list:
+    #         if account.somedia == accountname:
+    #             return account
+
+
+    @classmethod
+    def display_accounts(cls):
+        '''
+        method that returns the account list
+        '''
+        return cls.account_list
+
+        
