@@ -16,3 +16,19 @@ def save_user(user):
     '''
     contact.save_user()
 
+def create_account(socialaccount,socialusername,socialpassword):
+    '''
+    Function to add a new social media's account
+    '''
+    new_account = Account(socialaccount,socialusername,socialpassword)
+    return new_account
+
+def save_account(account):
+    '''
+    Function to save the user's accounts
+    '''
+    contact.save_account()
+
+
+
+
