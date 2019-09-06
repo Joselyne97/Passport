@@ -23,13 +23,13 @@ def create_account(socialaccount,socialusername,socialpassword):
     new_account = Account(socialaccount,socialusername,socialpassword)
     return new_account
 
-def save_account(account):
+def save_accounts(account):
     '''
     Function to save the user's accounts
     '''
     account.save_account()
 
-def del_account(account):
+def delete_account(account):
     '''
     Function to delete a the unwanted social media's account
     '''
@@ -49,60 +49,64 @@ def main():
             # print(f"Hello {user_name}. what would you like to do?")
             # print('\n')
 
-            while True:
-                print(' ')
-                print('.'*40)
-                print("Kindly use these short codes : \n nac - create a new account, \n lo: to login, \n ex: exit account list")
+    while True:
+        print(' ')
+        print('.'*40)
+        print("Kindly use these short codes : \n nac - add a new account, \n dlt: to delete the social media account, \n dc: to display the account list, \n ex: exit account list")
 
-                short_code = input('Choose a short code').lower().strip()
+        short_code = input('Choose a short code').lower().strip()
 
-                if short_code == 'ex':
-                    break
-                elif short_code == 'nac':
+        if short_code == 'ex':
+            break
 
-                    print("New Account")
-                            print("."*40)
-                            print(' ')
-                            print ("To be a new user")
-                            f_name = input()
+        elif short_code == 'nac':
 
-                            print("Last name ...")
-                            l_name = input()
+            print("New Account")
+            print("."*40)
+            print(' ')
+            print ("New social media account")
+            socialaccount = input()
 
-                            print("Phone number ...")
-                            p_number = input()
+            print("Username of the social media's account")
+            socialusername = input()
 
-                            print("Email address ...")
-                            e_address = input()
+            print("The password of the social media's account")
+            socialpassword = input()
 
 
-                            save_contacts(create_contact(f_name,l_name,p_number,e_address)) # create and save new contact.
-                            print ('\n')
-                            print(f"New Contact {f_name} {l_name} created")
-                            print ('\n')
+            save_accounts(create_account(socialaccount,socialusername,socialpassword)) # create and save new social media's information.
+            print ('\n')
+            print(f"New Account {socialaccount} {socialpassword} created")
+            print ('\n')
 
-                    elif short_code == 'dc':
+        elif short_code == 'dc':
 
-                            if display_contacts():
-                                    print("Here is a list of all your contacts")
-                                    print('\n')
+                if display_accounts():
+                        print(' ')
+                        print("Here is a list of all your accounts")
+                        print("."*40)
+                        print('\n')
 
-                                    for contact in display_contacts():
-                                            print(f"{contact.first_name} {contact.last_name} .....{contact.phone_number}")
+                        for account in display_accounts():
+                            print(f"{account.socialaccount} {account.socialusername} .....{account.socialpassword}")
 
-                                    print('\n')
-                            else:
-                                    print('\n')
-                                    print("You dont seem to have any contacts saved yet")
-                                    print('\n')
+                            print('\n')
+                else:
+                        print('\n')
+                        print("You dont seem to have any account saved yet")
+                        print('\n')
 
-                    elif short_code == 'fc':
+        elif short_code == 'dlt':
+                if delete_accounts
+                        print("You want to delete an account")
+                        print("."*40)
+                        print(' ')
 
-                            print("Enter the number you want to search for")
+                        print("Enter the social account name you want to delete")
 
-                            search_number = input()
-                            if check_existing_contacts(search_number):
-                                    search_contact = find_contact(search_number)
+                            socialmedia_name= input()
+                            if delete_account(socialmedia_name):
+                                    socialmedia_name = delete_account(search_number)
                                     print(f"{search_contact.first_name} {search_contact.last_name}")
                                     print('-' * 20)
 
