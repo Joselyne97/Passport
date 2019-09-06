@@ -1,4 +1,6 @@
+import pyperclip
 class Account:
+
     """
     Class that generates new instances of user's accounts
     """
@@ -49,5 +51,3 @@ class Account:
         method that returns the account list
         '''
         return cls.account_list
-
-        
