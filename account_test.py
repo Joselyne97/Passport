@@ -2,7 +2,7 @@ import unittest
 import pyperclip
 
 
-from credential import Account
+from account import Account
 
 class testAccounts(unittest.TestCase):
     '''
