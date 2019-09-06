@@ -55,13 +55,20 @@ class Account:
         self.username = username
         self.accpassword = accpassword
 
-    def save_accounts(self):
+    def save_account(self):
 
         '''
         save_account method saves account objects into account_list
         '''
 
         Account.account_list.append(self)
+
+     def generate_newpassword(size=8,char=string):
+        '''
+        function to generate an 8 character password
+        '''
+        gen_pass=''.join(random.choice(char) for _ in range(size))
+        return gen_pass
 
     @classmethod
     def display_accounts(cls,somedia):
