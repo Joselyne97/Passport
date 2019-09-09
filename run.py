@@ -121,13 +121,13 @@ def main():
                             print(' ')
                             print('Enter your account name: ')
                             somedia = input('enter the the social media\'s name:  ').strip() 
-                            username = input('enter your account \'s username:  ').strip()
-                            accpassword = input('enter the account \'s password: ').strip()
+                            username = input('enter your account\'s username:  ').strip()
+                            
                             
                             while True:
                                 print(' ')
                                 print("_"*50)
-                                print("please enter the choose for entering password for your account: \n pwd = enter existing password \n gp-generate password \n dlt- delete \n ex- Exit")
+                                print("please enter the choose for entering password for your account: \n pwd = enter existing password \n gp-generate a new password \n dlt- delete \n ex- Exit")
                                 opt_choice = input('Enter an option: ').lower().strip()
                                 print("-"*80)
                                 if opt_choice == 'pwd':
@@ -150,7 +150,7 @@ def main():
                                     print('Try Again!.')
                             save_account(create_account(somedia,username,accpassword))
                             print(' ')
-                            print(f'Account Created: social media Name:  {somedia} -Acount userName:{username} -Password:{accpassword}')
+                            print(f'Account Created: Name:  {somedia}, userName:{username}, Password:{accpassword}')
                             print(' ')
                         elif short_code == 'dc':
                             print(' ')
@@ -167,7 +167,7 @@ def main():
                     
                         elif short_code =='cy':
                             print(' ')
-                            chosen_account = input("enter the name of social media account and the password to copy: ")
+                            chosen_account = input("enter the name of social media account: ")
 
                             copy_account(chosen_account)
                             print(' ')
@@ -192,3 +192,4 @@ def main():
 if __name__ == '__main__':
 
     main()
+    
