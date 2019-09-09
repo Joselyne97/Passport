@@ -158,7 +158,7 @@ def main():
                                 print('Here is a list of all accounts')
                                 print(' ')
                                 for account in display_accounts(somedia):
-                                    print(f'somedia: {account.somedia} - username: {account.username} - Password: {account.accpassword}')
+                                    print(f'social media name: {account.somedia} - username: {account.username} - Password: {account.accpassword}')
                                     print(' ')
                             else:
                                 print(' ')
