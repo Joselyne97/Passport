@@ -141,10 +141,10 @@ def main():
                                     print('Successfully Deleted!')
                                     break
                                 
-                                elif pwd_choice == 'gp':
+                                elif opt_choice == 'gp':
                                     password = generate_newpassword()
                                     break
-                                elif pwd_choice == 'ex':
+                                elif opt_choice == 'ex':
                                     break
                                 else:
                                     print('Try Again!.')
@@ -158,7 +158,7 @@ def main():
                                 print('Here is a list of all accounts')
                                 print(' ')
                                 for account in display_accounts(somedia):
-                                    print(f'Social media Name : {account.somedia} - Account userName: {account.userName} - Password: {account.accpassword}')
+                                    print(f'somedia: {account.somedia} - username: {account.username} - Password: {account.accpassword}')
                                     print(' ')
                             else:
                                 print(' ')
