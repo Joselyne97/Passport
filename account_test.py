@@ -1,6 +1,7 @@
 import unittest
 import pyperclip
-from account-user import User, Account
+from account import User
+from account import Account
  
 
 class testUser(unittest.TestCase):
@@ -112,18 +113,18 @@ class testAccounts(unittest.TestCase):
             tearDown method that does clean up after each test case has run.
             '''
             Account.account_list = []
-            user.user_list=[]
+            User.user_list=[]
 
     def test_display_accounts(self):
         '''
         method that returns a list of all accounts saved
         '''
         self.new_account.save_account()
-        codewars = account('Codewars', 'Jojo','user')
+        codewars = Account('Codewars', 'Jojo','user')
         codewars.save_account()
-        gmail= account('Gmail','Joselyne JOJO','jojoly')
+        gmail= Account('Gmail','Joselyne JOJO','jojoly')
         gmail.save_account()
-        self.assertEqual(len(Account.display_accounts(codewars.somedia)),2)
+        self.assertEqual(len(Account.display_accounts(codewars.somedia)),3)
 
     def test_find_by_somedia(self):
         '''

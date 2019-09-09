@@ -63,7 +63,7 @@ class Account:
 
         Account.account_list.append(self)
 
-     def generate_newpassword(size=8,char=string):
+    def generate_newpassword(size=8,char=string):
         '''
         function to generate an 8 character password
         '''
@@ -77,7 +77,7 @@ class Account:
         '''
         user_account_list=[]
         for account in cls.account_list:
-            if account.somedia == somedia
+            # if account.somedia == somedia
             user_account_list.append(account)
         return user_account_list
 

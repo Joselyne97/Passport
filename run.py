@@ -1,6 +1,7 @@
 
 import pyperclip
-from account-user import User, Account
+from account import User
+from account import Account
 
 def create_user(myname,mypassword):
     '''
@@ -26,8 +27,8 @@ def generate_newpassword():
     '''
     function to generate password
     '''
-    gen_pass = Account.generate_newpassword()
-    return gen_pass  
+    gen_pas = Account.generate_newpassword()
+    return gen_pas 
 
 def create_account(somedia,username,accpassword):
     '''
@@ -83,8 +84,8 @@ def main():
             print("."*40)
             print(' ')
             print ("Create a new account:")
-            lockname = input('Input the username -').strip()
-            password = input('Input the password not less than 8 character').strip()
+            lockname = input('Input the username: ').strip()
+            password = input('Input the password not less than 8 character: ').strip()
             save_user(create_user(lockname,password))
             print(f'New user created for: {lockname} using password: {password}')
             
@@ -93,7 +94,7 @@ def main():
                 print("_"*40)
                 print(' ')
                 print('to login enter your account details:')
-                lockname = input('Enter your lockname orusername - ').strip()
+                lockname = input('Enter your lockname or username - ').strip()
                 password= str(input('Enter your password - '))
                 user_exists = verify_user(lockname,password)
                 if user_exists == lockname:
@@ -102,7 +103,7 @@ def main():
                     print(' ')  
                     while True:
                         print("_"*40)
-                        print('to navigate to account use code:\n nac = to create an account \n dc = to display accounts \n cy = to copy  password \n dlt = to delete \n ex- Exit')
+                        print('to navigate to account use code:\n sm = to add a social media account, \n dc = to display accounts \n cy = to copy  password \n dlt = to delete \n ex- Exit')
                         short_code=input('Enter a choice: ').lower().strip()
                         print("_"*40)
                         if short_code =='ex':
@@ -116,11 +117,12 @@ def main():
                             print(' ')
                             print('Successfully Deleted!')
                             break
-                        elif short_code =='nac':
+                        elif short_code =='sm':
                             print(' ')
                             print('Enter your account name: ')
-                            somedia = input('enter the the social media\'s name- ').strip() 
-                            username = input('enter your account \'s username - ').strip()
+                            somedia = input('enter the the social media\'s name:  ').strip() 
+                            username = input('enter your account \'s username:  ').strip()
+                            accpassword = input('enter the account \'s password: ').strip()
                             
                             while True:
                                 print(' ')
@@ -139,35 +141,35 @@ def main():
                                     print('Successfully Deleted!')
                                     break
                                 
-                                elif psw_choice == 'gp':
-                                    password = generate_password()
+                                elif pwd_choice == 'gp':
+                                    password = generate_newpassword()
                                     break
-                                elif psw_choice == 'ex':
+                                elif pwd_choice == 'ex':
                                     break
                                 else:
                                     print('Try Again!.')
-                            save_credential(create_credential(user_name,site_name,account_name,password))
+                            save_account(create_account(somedia,username,accpassword))
                             print(' ')
-                            print(f'Credential Created:Site Name:  {site_name} -Acount Name:{account_name} -Password:{password}')
+                            print(f'Account Created: social media Name:  {somedia} -Acount userName:{username} -Password:{accpassword}')
                             print(' ')
                         elif short_code == 'dc':
                             print(' ')
-                            if display_credentials(user_name):
-                                print('Here is a list of all credentials')
+                            if display_accounts(somedia):
+                                print('Here is a list of all accounts')
                                 print(' ')
-                                for credential in display_credentials(user_name):
-                                    print(f'Site Name : {credential.site_name} - Account Name: {credential.account_name} - Password: {credential.password}')
+                                for account in display_accounts(somedia):
+                                    print(f'Social media Name : {account.somedia} - Account userName: {account.userName} - Password: {account.accpassword}')
                                     print(' ')
                             else:
                                 print(' ')
-                                print("you don't seem to have any credentials")
+                                print("you don't seem to have any account")
                                 print(' ')
                     
-                        elif short_code =='copy':
+                        elif short_code =='cy':
                             print(' ')
-                            chosen_site = input("enter the site for credential password to copy: ")
+                            chosen_account = input("enter the name of social media account and the password to copy: ")
 
-                            copy_credential(chosen_site)
+                            copy_account(chosen_account)
                             print(' ')
                         else: 
                             print('TRY Again')
@@ -178,64 +180,15 @@ def main():
 
                  
          
-            else:
-                print("_"*80)
+        else:
+                print("_"*40)
                 print(' ')
                 print("try Again")
 
-        #     print("Username of the social media's account")
-        #     socialusername = input()
-
-        #     print("The password of the social media's account")
-        #     socialpassword = input()
-
-
-        #     save_accounts(create_account(socialaccount,socialusername,socialpassword)) # create and save new social media's information.
-        #     print ('\n')
-        #     print(f"New Account {socialaccount} {socialpassword} created")
-        #     print ('\n')
-
-        # elif short_code == 'dc':
-
-        #         if display_accounts():
-        #                 print(' ')
-        #                 print("Here is a list of all your accounts")
-        #                 print("."*40)
-        #                 print('\n')
-
-        #                 for account in display_accounts():
-        #                     print(f"{account.socialaccount} {account.socialusername} .....{account.socialpassword}")
-
-        #                     print('\n')
-        #         else:
-        #                 print('\n')
-        #                 print("You dont seem to have any account saved yet")
-        #                 print('\n')
-
-        # elif short_code == 'dlt':
-        #         if delete_accounts
-        #                 print("You want to delete an account")
-        #                 print("."*40)
-        #                 print(' ')
-
-        #                 print("Enter the social account name you want to delete")
-
-        #                     delete_socialaccount= input()
-        #                     if delete_account(socialmedia_name):
-        #                             delete_socialaccount = find_account(delete_socialaccount)
-        #                             print(f"{delete_account.socialaccount} {delete_account.socialpassword}")
-        #                             print('-' * 20)
-
-        #                             print(f"Username of the social media's account{delete_account.username}")
-        #                             print(f"The password of the social media's account{delete_account.accpassword}")
-        #                     else:
-        #                             print("That contact does not exist")
-
-        #             elif short_code == "ex":
-        #                     print("Bye .......")
-                            break
-                    else:
-                            print("I really didn't get that. Please use the short codes")
+       
+                    #     break
+                    # else:
+                    #         print("I really didn't get that. Please use the short codes")
 if __name__ == '__main__':
 
     main()
